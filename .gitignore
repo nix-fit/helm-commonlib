@@ -1,0 +1,28 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+
+# Logs
+*.log
+
+# Env files
+.env
+.env.*
+
+# Helm build artifacts
+*.tgz
+release-*.yaml
+
+# Local development
+dev.values.yaml
+dev.secrets.yaml
+.sops.yaml

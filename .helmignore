@@ -1,0 +1,32 @@
+# Patterns to ignore when building Helm chart packages
+# Supports globbing and negation (!) — one pattern per line
+
+.DS_Store
+
+# VCS
+.git/
+.gitignore
+.bzr/
+.bzrignore
+.hg/
+.hgignore
+.svn/
+
+# Backups / temp files
+*.swp
+*.swo
+*.bak
+*.tmp
+*.orig
+*~
+
+# IDEs / editors
+.project
+.idea/
+*.tmproj
+.vscode/
+
+# Local development
+dev.values.yaml
+dev.secrets.yaml
+.sops.yaml
