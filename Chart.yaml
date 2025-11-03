@@ -1,0 +1,10 @@
+apiVersion: v2
+name: commonlib
+description: Common helper functions
+type: library
+version: 1.0.0
+
+maintainers:
+  - email: nex1gen@yandex.ru
+    name: Dmitrii Bogomolnyi
+    url: https://github.com/nex1gen
