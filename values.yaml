@@ -1,0 +1,16 @@
+---
+
+# Theese values are ingored cuz of type library, but the defaults are correct (see _helpers.tpl)
+
+commonlib:
+  volumes:
+    tmp:
+      # -- tmp volume size limit
+      sizeLimit: "128Mi"
+      # -- tmp volume mount path
+      mountPath: "/tmp"
+    logs:
+      # -- logs volume size limit
+      sizeLimit: "128Mi"
+      # -- logs volume mount path
+      mountPath: "/logs"
