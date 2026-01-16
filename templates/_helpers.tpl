@@ -12,11 +12,9 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 
 {{- define "commonlib.labels" -}}
 {{- include "commonlib.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-{{- end }}
+app.kubernetes.io/version: {{ .Values.image.tag | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-helm.sh/chart: {{ printf "%s-%s" (include "commonlib.name" .) .Chart.Version }}
+helm.sh/chart: {{ printf "%s-%s" (include "commonlib.name" .) (.Chart.Version | replace "+" "-") | quote }}
 {{- end }}
 
 {{/*
