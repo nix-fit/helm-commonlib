@@ -1,6 +1,6 @@
 # commonlib
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square)
 
 ## Description
 
@@ -24,7 +24,7 @@ helm-docs --template-files=README.md.gotmpl
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| commonlib.volumes.logs.mountPath | string | `"/logs"` | logs volume mount path |
-| commonlib.volumes.logs.sizeLimit | string | `"128Mi"` | logs volume size limit |
-| commonlib.volumes.tmp.mountPath | string | `"/tmp"` | tmp volume mount path |
-| commonlib.volumes.tmp.sizeLimit | string | `"128Mi"` | tmp volume size limit |
+| volumes.logs.mountPath | string | `"/logs"` | logs volume mount path |
+| volumes.logs.sizeLimit | string | `"128Mi"` | logs volume size limit |
+| volumes.tmp.mountPath | string | `"/tmp"` | tmp volume mount path |
+| volumes.tmp.sizeLimit | string | `"128Mi"` | tmp volume size limit |

@@ -1,0 +1,17 @@
+name: Helm Publish
+
+on:
+  push:
+    tags: ['v*']
+    branches: ['**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  helm-publish:
+    uses: nix-fit-org/nix-github-workflows/.github/workflows/helm-publish.yml@main
+    with:
+      registry_path: helm/libs
+    secrets: inherit

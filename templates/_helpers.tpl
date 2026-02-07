@@ -44,8 +44,7 @@ capabilities:
 Env from values
 */}}
 {{- define "commonlib.envFromValues" -}}
-{{- $app := default dict .Values.app -}}
-{{- range $k, $v := $app.env }}
+{{- range $k, $v := .Values.app.env }}
 - name: {{ $k }}
   value: {{ $v | quote }}
 {{- end }}
@@ -55,9 +54,7 @@ Env from values
 Env from secrets
 */}}
 {{- define "commonlib.envFromSecrets" -}}
-{{- $app := default dict .Values.app -}}
-{{- $secrets := default dict $app.secrets -}}
-{{- range $k, $v := $secrets.env }}
+{{- range $k, $v := .Values.app.secrets.env }}
 - name: {{ $k }}
   valueFrom:
     secretKeyRef:
@@ -70,30 +67,22 @@ Env from secrets
 Base volume mounts
 */}}
 {{- define "commonlib.volumeMounts" -}}
-{{- $commonlib := default dict $.Values.commonlib -}}
-{{- $volumes := default dict $commonlib.volumes -}}
-{{- $tmp := default dict (index $volumes "tmp") -}}
-{{- $logs := default dict (index $volumes "logs") -}}
 - name: tmp
-  mountPath: {{ default "/tmp" $tmp.mountPath }}
+  mountPath: {{ .Values.commonlib.volumes.tmp.mountPath }}
 - name: logs
-  mountPath: {{ default "/logs" $logs.mountPath }}
+  mountPath: {{ .Values.commonlib.volumes.logs.mountPath }}
 {{- end }}
 
 {{/*
 Base volumes
 */}}
 {{- define "commonlib.volumes" -}}
-{{- $commonlib := default dict $.Values.commonlib -}}
-{{- $volumes := default dict $commonlib.volumes -}}
-{{- $tmp := default dict (index $volumes "tmp") -}}
-{{- $logs := default dict (index $volumes "logs") -}}
 - name: tmp
   emptyDir:
-    sizeLimit: {{ default "128Mi" $tmp.sizeLimit }}
+    sizeLimit: {{ .Values.commonlib.volumes.tmp.sizeLimit }}
 - name: logs
   emptyDir:
-    sizeLimit: {{ default "128Mi" $logs.sizeLimit }}
+    sizeLimit: {{ .Values.commonlib.volumes.logs.sizeLimit }}
 {{- end }}
 
 {{/*
