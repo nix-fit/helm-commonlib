@@ -1,0 +1,9 @@
+name: Helm Validate
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  helm-validate:
+    uses: nix-fit-org/nix-github-workflows/.github/workflows/helm-validate.yml@main
