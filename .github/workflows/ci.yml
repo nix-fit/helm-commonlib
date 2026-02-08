@@ -1,4 +1,4 @@
-name: Helm Publish
+name: CI
 
 on:
   push:
@@ -10,7 +10,12 @@ permissions:
   contents: write
 
 jobs:
-  helm-publish:
+  validate:
+    uses: nix-fit-org/nix-github-workflows/.github/workflows/helm-validate.yml@main
+
+  publish:
+    needs: validate
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     uses: nix-fit-org/nix-github-workflows/.github/workflows/helm-publish.yml@main
     with:
       registry_path: helm/libs
